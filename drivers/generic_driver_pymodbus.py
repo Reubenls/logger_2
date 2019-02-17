@@ -1,6 +1,5 @@
 from pymodbus.client.sync import ModbusSerialClient as ModbusClient
-from decimal import Decimal
-import numpy as np
+
 import json
 import struct
 import time
@@ -12,7 +11,7 @@ class generic_driver_pymodbus(ModbusClient):
         self.address = spec['address']
         ModbusClient.__init__(self,method='rtu', port=spec['port'],stopbits=spec['stopbits'], baudrate=spec['baudrate'])
         self.connect()
-        time.sleep(2)
+        time.sleep(0.5)
 
     def read_instrument(self,reg,num_reg=1):
         response = self.read_holding_registers(reg, count=num_reg, unit=self.address)
@@ -63,7 +62,7 @@ class generic_driver_pymodbus(ModbusClient):
         return struct.unpack('!h', mp)[0]
    
     def _to_float(self, data):
-        mp = struct.pack('!HH', data[1], data[0])
+        mp = struct.pack('!HH', data[0], data[1])
         return struct.unpack('!f', mp)[0]
 
 

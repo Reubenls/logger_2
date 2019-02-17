@@ -8,7 +8,6 @@ class F250Bridge_K705Scanner(object):
 
         self.spec = spec
         rm = visa.ResourceManager()
-
         self.bridge = rm.open_resource(spec["port_bridge"])
         self.scanner = rm.open_resource(spec["port_scanner"])
         self.active_channel = 13

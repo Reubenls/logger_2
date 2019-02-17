@@ -2,14 +2,11 @@ import visa
 import json
 import time
 from decimal import Decimal
-from threading import Lock
-import numpy as np
 
 class generic_driver_visa_serial(object):
 
     def __init__(self, spec):
         self.spec = spec
-        self.operations = spec['operations']
         port = spec["port"]
         baud = spec["baudrate"]
         w_term = spec.get("write_termination",'\r')
@@ -22,68 +19,16 @@ class generic_driver_visa_serial(object):
                                            write_termination=w_term,
                                            read_termination=r_term)
         self.instrument.open()
-        self.lock = Lock()
 
-    def read_instrument(self,operation_id):
-        """
-        read instrument 
-        """
-        operation = self.operations[operation_id]
-        datatype = operation['data_type']
-        type = operation['type']
-        echo = self.spec.get('echo',False)
-        stored = self.store.get(operation_id,(None,time.time()-(self.timeout+1)))
-        if time.time() - stored[1]< self.timeout:
-           data,data_trans = stored[0]
-           #print("using stored") #testing
-        else:
-            # data = self.instrument.query(operation['command'])
-            if type == 'read_store':
-                self.read_instrument(operation.get("store_id"))
-                stored = self.store.get(operation_id)
-                if time.time() - stored[1] > self.timeout:
-                    print ('store not updating')
-                    return (-1,-1)
-                data, data_trans = stored[0]
-                return data, data_trans
+    def read_instrument(self,query):
 
-            elif type == 'read_multiple':
-                with self.lock:
-                    print("locK")
-                    data = self.instrument.query(operation['command'])
-                    if echo:
-                        data = self.instrument.read()
-                    data = data.split(operation.get("split"))
-                    data = [self.decimals(d,operation) for d in data]
-                    o_ops = operation.get("operations")
-                    if o_ops is not None:
-                        for on in o_ops:
-                            o = self.operations.get(on)
-                            oi = o.get("store_index")
-                            d = data[oi]
-                            dt = self.transform(d,o)
-                            self.store[on] = ((d,dt),time.time())
-
-                    data_trans = [self.transform(d, operation) for d in data]
-                print('unlocK')
-            else:
-                with self.lock:
-                    print("lock")
-                    print(operation['command'])
-                    data = self.instrument.query(operation['command'])
-                    if echo:
-                        data = self.instrument.read()
-                    data = self.decimals(data,operation)
-                    data_trans = self.transform(data, operation)
-
-                print('unlock')
-            self.store[operation_id] = ((data,data_trans),time.time())
-
-        return data, data_trans
+        data = self.instrument.query(query)
+        if self.echo == True:
+            data = self.instrument.read()
+        return data
 
     #todo writing to instruments
     def write_instrument(self,operation_id,values):
-        with self.lock:
             """
             write instrument 
             """
@@ -111,8 +56,8 @@ class generic_driver_visa_serial(object):
     def decimals(self,data,operation):
         d_shift = operation.get('decimal_shift',0)
         d = Decimal(data).scaleb(d_shift)
-        f = np.float64(d)
-        return f
+        # f = np.float64(d)
+        return d
 
     def transform(self,data,operation):
         x = data

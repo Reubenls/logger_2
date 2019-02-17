@@ -1,7 +1,7 @@
 {
     "instrument_id": "S8000RS",
     "instrument_name": "S8000 RS Chilled mirror Hydrometer",
-    "driver":"generic_driver_pymodbus",
+    "driver":"S8000",
     "interface": "modbus_rtu",
     "address": 1,
     "port": "COM19",

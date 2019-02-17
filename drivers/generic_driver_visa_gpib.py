@@ -5,11 +5,11 @@ from decimal import Decimal
 
 class generic_driver_visa_gpib(object):
 
-    def __init__(self,address):
-        # self.spec =spec
+    def __init__(self,spec):
+        self.spec = spec
         # self.operations = spec['operations']
         #self.operations =[ ]
-        # port = spec["port"]
+        port = spec["port"]
         # baud = spec["baudrate"]
         # w_term = spec["write_termination"]
         # r_term = spec["read_termination"]

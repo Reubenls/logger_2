@@ -1,9 +1,9 @@
 {
     "instrument_id": "LHG3900",
     "instrument_name": "Thunder Scientific 3900 Low Humidity Generator",
-    "driver":"generic_driver_visa_serial",
+    "driver":"LHG3900",
     "interface": "visa",            
-    "port": "COM24",
+    "port": "COM31",
     "baudrate":2400,
     "write_termination":"\r",
     "read_termination":"\r\n",

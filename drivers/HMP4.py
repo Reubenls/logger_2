@@ -1,5 +1,4 @@
 from drivers.generic_driver_pymodbus import generic_driver_pymodbus as Driver
-import asyncio
 import logging
 import time
 
