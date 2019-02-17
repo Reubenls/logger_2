@@ -1,0 +1,248 @@
+{
+    "instrument_id": "S8000RS",
+    "instrument_name": "S8000 RS Chilled mirror Hydrometer",
+    "driver":"generic_driver_pymodbus",
+    "interface": "modbus_rtu",
+    "address": 1,
+    "port": "COM19",
+    "baudrate":9600,
+    "parity":"None",
+    "databits":8,
+    "stopbits":2,
+    "flowcontrol":"None",
+    "notes": "comment",
+    "data_registers":[[0,20]],
+    "update_time":10,
+    "operations": {
+        "read_address":{
+            "type": "read",
+            "name": "Slave Address",
+            "details":"",
+            "id": "read_address",
+            "register":0,
+            "data_type": "uint",
+            "unit": ""
+        },
+        "write_address":{
+            "type": "write",
+            "name": "Slave Address",
+            "details":"",
+            "id": "read_address",
+            "valid_input":"1 to 247",
+            "register":0,
+            "data_type": "uint",
+            "unit": ""
+        },
+        "read_dewpoint":{
+            "type": "read",
+            "name": "Dew Point",
+            "details":"",
+            "id": "read_dewpoint",
+            "register":1,
+            "num_reg":2,
+            "data_type": "float",
+            "unit": ""
+        },
+        "read_ambtemp":{
+            "type": "read",
+            "name": "Ambient Tempreature",
+            "details":"",
+            "id": "read_ambtemp",
+            "register":3,
+            "num_reg":2,
+            "data_type": "float",
+            "unit": ""
+        },
+        "read_rh":{
+            "type": "read",
+            "name": "Relitive Humidity",
+            "details":"",
+            "id": "read_rh",
+            "register":5,
+            "num_reg":1,
+            "data_type": "int",
+            "decimal_shift": -2,
+            "transform_eq":"x+c[0]+c[1]",
+            "transform_coeff":[10,1],
+            "unit": ""
+        },
+        "read_pressure":{
+            "type": "read",
+            "name": "Pressure",
+            "details":"",
+            "id": "read_pressure",
+            "register":6,
+            "num_reg":1,
+            "decimal_shift": -1,
+            "data_type": "int",
+            "unit": ""
+        },
+        "read_ppmv":{
+            "type": "read",
+            "name": "Ppmv",
+            "details":"",
+            "id": "read_ppmv",
+            "register":7,
+            "data_type": "float",
+            "unit": ""
+        },
+        "read_ppmw":{
+            "type": "read",
+            "name": "Ppmw",
+            "details":"",
+            "id": "read_ppmw",
+            "register":9,
+            "data_type": "float",
+            "unit": ""
+        },
+        "read_gm3":{
+            "type": "read",
+            "name": "g/m3",
+            "id": "read_gm3",
+            "details":"",
+            "register":11,
+            "data_type": "float",
+            "unit": ""
+        },
+        "read_gkg":{
+            "type": "read",
+            "name": "g/kg",
+            "id": "read_gm3",
+            "details":"",
+            "register":13,
+            "data_type": "float",
+            "unit": ""
+        },
+        "read_flow":{
+            "type": "read",
+            "name": "Flow Rate",
+            "details":"",
+            "id": "read_flow",
+            "register":15,
+            "data_type": "uint",
+            "unit": ""
+        },
+        "read_mirror_cond":{
+            "type": "read",
+            "name": "Mirror Condition",
+            "details":"",
+            "id": "read_mirror_cond",
+            "register":16,
+            "data_type": "int",
+            "decimals": 1,
+            "unit": ""
+        },
+        "read_hp_drive":{
+            "type": "read",
+            "name": "heat pump Drive",
+            "details":"",
+            "id": "read_hp_drive",
+            "register":17,
+            "data_type": "uint",
+            "unit": ""
+        },
+        "read_status":{
+            "type": "read",
+            "name": "heat pump Drive",
+            "details":"",
+            "id": "read_hp_drive",
+            "register":18,
+            "data_type": "bits",
+            "unit": ""
+        },
+        "read_dcc_hold_time":{
+            "type": "read",
+            "name": "DCC period + Hold Time Duration Minutes",
+            "details":"",
+            "id": "read_dcc_hold_time",
+            "register":19,
+            "data_type": "bcd",
+            "unit": ""
+        },
+        "write_dcc_hold_time":{
+            "type": "write",
+            "name": " Set DCC period + Hold Time Duration Minutes",
+            "details":"",
+            "id": "write_dcc_hold_time",
+            "register":19,
+            "data_type": "bcd",
+            "unit": ""
+        },
+        "read_measure_time":{
+            "type": "read",
+            "name": "DCC interval Hours + Minutes",
+            "details":"",
+            "id": "read_measure_time",
+            "register":20,
+            "data_type": "bcd",
+            "unit": ""
+        },
+        "read_phase_time_hrs":{
+            "type": "read",
+            "name": "Phase Time hours",
+            "details":"",
+            "id": "read_phase_time_hrs",
+            "register":21,
+            "data_type": "uint",
+            "unit": "hrs"
+        },
+        "read_phase_time_min_sec":{
+            "type": "read",
+            "name": "Phase Time minutes and Seconds",
+            "details":"",
+            "id": "read_phase_time_min_sec",
+            "register":22,
+            "data_type": "bcd",
+            "unit": "min,sec"
+        },
+        "write_measure_time":{
+            "type": "write",
+            "name": "Set DCC interval Hours + Minutes",
+            "details":"",
+            "id": "write_measure_time",
+            "register":20,
+            "data_type": "bcd",
+            "unit": "hrs,mmin"
+        },
+        "write_set_temp":{
+            "type": "write",
+            "name": "set_temp",
+            "details":"",
+            "id": "write_set_temp",
+            "register":2,
+            "data_type": "int",
+            "unit": ""
+        },
+        "read_sensor_temp":{
+            "type": "read",
+            "name": "Read Semsor Temperature",
+            "details":"",
+            "id": "read_sensor_temp",
+            "register":20,
+            "data_type": "int",
+            "decimals":1,
+            "unit": ""
+        },
+        "read_sensor_temp_g1":{
+            "type": "read_g1",
+            "name": "Read Semsor Temperature",
+            "details":"",
+            "id": "read_sensor_temp",
+            "register":20,
+            "data_type": "int",
+            "decimals":1,
+            "unit": ""
+        },
+        "read_group_1":{
+            "type": "read_multiple",
+            "name": "Read bulk test",
+            "details":"",
+            "id": "read_group_1",
+            "register":0,
+            "num_reg":120,
+            "data_type": "none",
+            "decimals":0,
+            "unit": ""
+        }
+    }
+}

@@ -1,0 +1,85 @@
+{
+    "instrument_id": "HMT333_101",
+    "instrument_name": "Vaisala HMT333",
+    "driver":"generic_driver_visa_serial",
+    "interface": "visa",            
+    "port": "COM22",
+    "baudrate":19200,
+    "write_termination":"\r",
+    "read_termination":"\r\n",
+    "notes": "This should also work for HMT337 and probably others",
+    "operations": {
+        "read_default":{
+            "type": "read_multiple",
+            "name": "T_h_FP_C_raw_corr_Tx",
+            "id": "read_default",
+            "details":"",
+            "command":"SEND D",
+            "data_type": "list",
+            "unit": ""
+        },
+        "read_sens_t":{
+            "type": "read_store",
+            "name": "sens temp",
+            "id": "read_default",
+            "details":"",
+            "store_index":0,
+            "data_type": "",
+            "unit": ""
+        },
+        "read_rh":{
+            "type": "read_store",
+            "name": "rh",
+            "id": "read_default",
+            "details":"",
+            "store_index":1,
+            "data_type": "",
+            "unit": ""
+        },
+        "read_fp":{
+            "type": "read_store",
+            "name": "frost point",
+            "id": "read_default",
+            "details":"",
+            "store_index":2,
+            "data_type": "",
+            "unit": ""
+        },
+        "read_c":{
+            "type": "read_store",
+            "name": "capacetance",
+            "id": "read_default",
+            "details":"",
+            "store_index":3,
+            "data_type": "",
+            "unit": ""
+        },
+        "read_raw_rh":{
+            "type": "read_store",
+            "name": "raw rh",
+            "id": "read_default",
+            "details":"",
+            "store_index":4,
+            "data_type": "",
+            "unit": ""
+        },
+        "read_corr_rh":{
+            "type": "read_store",
+            "name": "corr rh",
+            "id": "read_default",
+            "details":"",
+            "store_index":5,
+            "data_type": "",
+            "unit": ""
+        },
+        "read_tx":{
+            "type": "read_store",
+            "name": "tx",
+            "id": "read_default",
+            "details":"",
+            "store_index":6,
+            "data_type": "",
+            "unit": ""
+        }
+    }
+}

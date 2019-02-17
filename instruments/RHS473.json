@@ -1,0 +1,134 @@
+{
+  "instrument_id": "RHS473",
+    "instrument_name": "RHS473",
+    "driver": "generic_driver_visa_serial",
+    "interface": "visa",
+    "port": "COM6",
+    "baudrate": 2400,
+    "write_termination": "\r",
+    "read_termination": "\r\n",
+    "echo": true,
+    "notes": "this should also work for 373 series ",
+    "operations": {
+        "read_Tm": {
+            "type": "read_single",
+            "name": "read_Tm",
+            "id": "read_Tm",
+            "command": "Tm?",
+            "transform_eq": "c[0]+c[1]*x+x[2]*x**2+c[3]*x**3",
+            "transform_coeff": [0,1,0,0],
+            "data_type": "float",
+            "unit": "deg C",
+            "details": "Tm is measured mirror temperature"
+        },
+        "read_DP": {
+            "type": "read_single",
+            "name": "read_DP",
+            "id": "read_DP",
+            "command": "DP?",
+            "transform_eq": "c[0]+c[1]*x+x[2]*x**2+c[3]*x**3",
+            "transform_coeff": [0,1,0,0],
+            "data_type": "float",
+            "unit": "deg C",
+            "details": "DP is calculated if Tm=FP"
+        },
+        "read_FP": {
+            "type": "read_single",
+            "name": "read_FP",
+            "id": "read_FP",
+            "command": "FP?",
+            "transform_eq": "c[0]+c[1]*x+x[2]*x**2+c[3]*x**3",
+            "transform_coeff": [0,1,0,0],
+            "data_type": "float",
+            "unit": "deg C",
+            "details": "FP is calculated if Tm=DP"
+        },
+        "read_RH": {
+            "type": "read_single",
+            "name": "read_RH",
+            "id": "read_RH",
+            "command": "RH?",
+            "transform_eq": "c[0]+c[1]*x+x[2]*x**2+c[3]*x**3",
+            "transform_coeff": [0,1,0,0],
+            "data_type": "float",
+            "unit": "deg C",
+            "details": "RH calc ex DP & assumes sat. at Tx over ice"
+        },
+        "read_RHw": {
+            "type": "read_single",
+            "name": "read_RHw",
+            "id": "read_RHw",
+            "command": "RHw?",
+            "transform_eq": "c[0]+c[1]*x+x[2]*x**2+c[3]*x**3",
+            "transform_coeff": [0,1,0,0],
+            "data_type": "float",
+            "unit": "deg C",
+            "details": "RH(WMO) calc ex DP & assumes sat. at Tx over liq"
+        },
+        "read_Tx": {
+            "type": "read_single",
+            "name": "read_Tx",
+            "id": "read_Tx",
+            "command": "Tx?",
+            "transform_eq": "c[0]+c[1]*x+x[2]*x**2+c[3]*x**3",
+            "transform_coeff": [0,1,0,0],
+            "data_type": "float",
+            "unit": "deg C",
+            "details": "define where placed"
+        },
+        "read_P": {
+            "type": "read_single",
+            "name": "read_P",
+            "id": "read_P",
+            "command": "_P?",
+            "transform_eq": "c[0]+c[1]*x+x[2]*x**2+c[3]*x**3",
+            "transform_coeff": [0,1,0,0],
+            "data_type": "float",
+            "unit": "Pa",
+            "details": " "
+        },
+        "read_VP": {
+            "type": "read_single",
+            "name": "read_VP",
+            "id": "read_VP",
+            "command": "VP?",
+            "transform_eq": "c[0]+c[1]*x+x[2]*x**2+c[3]*x**3",
+            "transform_coeff": [0,1,0,0],
+            "data_type": "float",
+            "unit": "Pa",
+            "details": "vapour pressure"
+        },
+        "read_Flow": {
+            "type": "read_single",
+            "name": "read_Flow",
+            "id": "read_Flow",
+            "command": "Flow?",
+            "transform_eq": "c[0]+c[1]*x+x[2]*x**2+c[3]*x**3",
+            "transform_coeff": [0,1,0,0],
+            "data_type": "float",
+            "unit": "SLPM",
+            "details":
+        },
+        "read_Th": {
+            "type": "read_single",
+            "name": "read_Th",
+            "id": "read_Th",
+            "command": "Th?",
+            "transform_eq": "c[0]+c[1]*x+x[2]*x**2+c[3]*x**3",
+            "transform_coeff": [0,1,0,0],
+            "data_type": "float",
+            "unit": "deg C"
+        },
+        "read_Stable": {
+            "type": "read_single",
+            "name": "read_Stable",
+            "id": "read_Stable",
+            "command": "Stable?",
+            "transform_eq": "c[0]+c[1]*x+x[2]*x**2+c[3]*x**3",
+            "transform_coeff": [0,1,0,0],
+            "data_type": "float",
+            "unit": ,
+            "details":
+        }
+    }
+}
