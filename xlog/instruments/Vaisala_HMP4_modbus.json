@@ -1,0 +1,196 @@
+{
+    "instrument_name": "HMP4",
+    "instrument_id": "HMP4",
+    "driver":"HMP4",
+    "interface": "modbus_rtu",            
+    "address": 240,
+    "port": "COM4",
+    "baudrate":19200,
+    "parity":"None",
+    "databits":8,
+    "stopbits":2,
+    "flowcontrol":"None",
+    "operations": {
+        "read_signed_int_test":{
+            "type": "read",
+            "name": "Signed integer test",
+            "details":"",
+            "id": "read_signed_int_test",
+            "register":7936,
+            "num_reg":1,
+            "data_type": "float",
+            "unit": "expect -12345"
+        },
+        "read_float_test":{
+            "type": "read",
+            "name": "Floating point test",
+            "details":"",
+            "id": "read_float_test",
+            "register":7937,
+            "num_reg":2,
+            "data_type": "float",
+            "unit": "expect -12345"
+        },
+        "read_string_test":{
+            "type": "read",
+            "name": "Text String test",
+            "details":"",
+            "id": "read_string_test",
+            "register":7939,
+            "num_reg":1,
+            "data_type": "string",
+            "unit": "expect -12345"
+        },
+        "read_rh":{
+            "type": "read",
+            "name": "Relative humidity",
+            "details":"",
+            "id": "read_rh",
+            "register":0,
+            "num_reg":2,
+            "decimal_shift": 0,
+            "data_type": "float",
+            "unit": "%RH"
+        },
+        "read_temp":{
+            "type": "read",
+            "name": "Tempreature",
+            "details":"",
+            "id": "read_temp",
+            "register":2,
+            "num_reg":2,
+            "data_type": "float",
+            "unit": "°C"
+        },
+        "read_dew_point_temp":{
+            "type": "read",
+            "name": "Dew point temperature",
+            "details":"",
+            "id": "read_dew_point_temp",
+            "register":6,
+            "num_reg":2,
+            "data_type": "float",
+            "unit": "°C"
+        },
+        "read_dew_frost_point_temp":{
+            "type": "read",
+            "name": "Dew/Frost point temperature",
+            "details":"",
+            "id": "read_dew_frost_point_temp",
+            "register":8,
+            "num_reg":2,
+            "data_type": "float",
+            "unit": "°C"
+        },
+        "read_dew_frost_point_temp_1atm":{
+            "type": "read",
+            "name": "Dew/Frost point temperature",
+            "details":"",
+            "id": "read_dew_frost_point_temp_1atm",
+            "register":10,
+            "num_reg":2,
+            "data_type": "float",
+            "unit": "°C"
+        },
+        "read_dew_point_temp_1atm":{
+            "type": "read",
+            "name": "Dew point temperature",
+            "details":"",
+            "id": "read_dew_point_temp_1atm",
+            "register":12,
+            "num_reg":2,
+            "data_type": "float",
+            "unit": "°C"
+        },
+        "read_abs_humidity":{
+            "type": "read",
+            "name": "Absolute humidity",
+            "details":"",
+            "id": "read_abs_humidity",
+            "register":14,
+            "num_reg":2,
+            "data_type": "float",
+            "unit": "g/m^3"
+        },
+        "read_mixing_ratio":{
+            "type": "read",
+            "name": "Mixing ratio",
+            "details":"",
+            "id": "read_mixing_ratio",
+            "register":16,
+            "num_reg":2,
+            "data_type": "float",
+            "unit": "g/kg"
+        },
+        "read_wetbulb_temp":{
+            "type": "read",
+            "name": "Wet-bulb temperature",
+            "details":"",
+            "id": "read_wetbulb_temp",
+            "register":18,
+            "num_reg":2,
+            "data_type": "float",
+            "unit": "°C"
+        },
+        "read_water_vapor_concentration":{
+            "type": "read",
+            "name": "Water vapor concentration",
+            "details":"",
+            "id": "read_water_vapor_concentration",
+            "register":20,
+            "num_reg":2,
+            "data_type": "float",
+            "unit": "ppmv"
+        },
+        "read_water_vapor_pressure":{
+            "type": "read",
+            "name": "Water vapor pressure",
+            "details":"",
+            "id": "read_water_vapor_pressure",
+            "register":22,
+            "num_reg":2,
+            "data_type": "float",
+            "unit": "hPa"
+        },
+        "read_water_vapor_saturation_pressure":{
+            "type": "read",
+            "name": "Water vapor saturation pressure",
+            "details":"",
+            "id": "read_water_vapor_saturation_pressure",
+            "register":24,
+            "num_reg":2,
+            "data_type": "float",
+            "unit": "hPa"
+        },
+        "read_enthalpy":{
+            "type": "read",
+            "name": "Enthalpy",
+            "details":"",
+            "id": "read_enthalpy",
+            "register":26,
+            "num_reg":2,
+            "data_type": "float",
+            "unit": "kJ/kg"
+        },
+        "read_abs_humidity_at_ntp":{
+            "type": "read",
+            "name": "Absolute humidity at NTP",
+            "details":"",
+            "id": "read_abs_humidity_at_ntp",
+            "register":32,
+            "num_reg":2,
+            "data_type": "float",
+            "unit": "g/m^3"
+        },
+        "read_water_vapor_mass_fraction":{
+            "type": "read",
+            "name": "Water vapor mass fraction",
+            "details":"",
+            "id": "read_water_vapor_mass_fraction",
+            "register":64,
+            "num_reg":2,
+            "data_type": "float",
+            "unit": "ppmw"
+        }
+    }
+}

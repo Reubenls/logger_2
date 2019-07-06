@@ -1,0 +1,18 @@
+{
+    "job_name":"dummy_inst_job",
+    "job_id":1,
+    "job_notes":"comment",
+    "datafile_raw": "test_data_raw.csv",
+    "datafile_trans": "test_data_trans.csv",
+    "points_file": "test_points_data.csv",
+    "min_interval": 10,
+    "time":0,
+    "instruments":{
+        
+        "test_device":"C:\\Users\\Reube\\Documents\\xllogger\\xlog\\instruments\\test_inst.json"
+    },
+    "operations":[
+        
+        "test_device.read_test.4"
+    ]
+}

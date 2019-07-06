@@ -1,0 +1,14 @@
+job_name: dummy_inst_job
+job_id: 1
+job_notes: comment
+datafile_raw: test_data_raw.csv
+datafile_trans: test_data_trans.csv
+points_file: test_points_data.csv
+min_interval: 10
+time: 0
+datetime,runtime,test_device.read_test
+2019-03-25 13:30:50.630435,0.1167607307434082,1
+2019-03-25 13:31:00.619116,10.105441331863403,1553473850
+2019-03-25 13:31:10.629026,20.115352153778076,1553473865
+2019-03-25 13:31:20.638174,30.124499797821045,1553473880
+2019-03-25 13:31:30.669929,40.156254529953,1553473880

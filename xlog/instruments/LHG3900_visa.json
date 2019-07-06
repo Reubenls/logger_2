@@ -1,0 +1,189 @@
+{
+    "instrument_id": "LHG3900",
+    "instrument_name": "Thunder Scientific 3900 Low Humidity Generator",
+    "driver":"LHG3900",
+    "interface": "visa",            
+    "port": "COM31",
+    "baudrate":2400,
+    "write_termination":"\r",
+    "read_termination":"\r\n",
+    "notes": "",
+    "operations": {
+        "read_default":{
+            "type": "read_multiple",
+            "name": "",
+            "id": "read_gm3",
+            "details":"",
+            "command":"?",
+            "data_type": "float",
+            "split":",",
+            "unit": ""
+        },
+        "read_dew_point":{
+            "type": "read",
+            "name": "Dew Point",
+            "id": "read_dew_point",
+            "details":"current value of generated Dew Point",
+            "command":"?DP",
+            "data_type": "float",
+            "unit": "°C"
+        },
+        "read_frost_point":{
+            "type": "read",
+            "name": "Frost Point",
+            "id": "read_frost_point",
+            "details":"current value of generated Frost Point",
+            "command":"?FP",
+            "data_type": "float",
+            "unit": "°C"
+        },
+        "read_flow_rate":{
+            "type": "read",
+            "name": "Flow Rate",
+            "id": "read_flow_rate",
+            "details":"Returns current value of actual Flow Rate",
+            "command":"?FL",
+            "data_type": "float",
+            "unit": "l/m"
+        },
+        "read_supply_pressure":{
+            "type": "read",
+            "name": "Supply Pressure",
+            "id": "read_supply_pressure",
+            "details":"Returns current value of actual Supply Pressure",
+            "command":"?PG",
+            "data_type": "float",
+            "unit": ""
+        },
+        "read_saturation_pressure":{
+            "type": "read",
+            "name": "Saturation Pressure",
+            "id": "read_saturation_pressure",
+            "details":"Returns current value of actual Saturation Pressure",
+            "command":"?PS",
+            "data_type": "float",
+            "unit": ""
+        },
+        "read_saturation_temp":{
+            "type": "read",
+            "name": "saturation_temp",
+            "id": "read_saturation_temp",
+            "details":"Returns current value of actual Saturation temperature",
+            "command":"?TS",
+            "data_type": "float",
+            "unit": ""
+        },
+        "read_test_temp":{
+            "type": "read",
+            "name": "test_temp",
+            "id": "read_test_temp",
+            "details":"Returns current value of actual Test temperature",
+            "command":"?TT",
+            "data_type": "float",
+            "unit": ""
+        },
+        "read_test_pressure":{
+            "type": "read",
+            "name": "Test Pressure",
+            "id": "read_test_pressure",
+            "details":"Returns current value of actual Test Pressure",
+            "command":"?PT",
+            "data_type": "float",
+            "unit": ""
+        },
+        "read_ppmv":{
+            "type": "read",
+            "name": "PPMv",
+            "id": "read_ppmv",
+            "details":"Returns current value of generated PPMv",
+            "command":"?PV",
+            "data_type": "float",
+            "unit": ""
+        },
+        "read_ppmw":{
+            "type": "read",
+            "name": "PPMw",
+            "id": "read_ppmw",
+            "details":"Returns current value of generated PPMw",
+            "command":"?PW",
+            "data_type": "float",
+            "unit": ""
+        },
+        "read_rh":{
+            "type": "read",
+            "name": "%RH",
+            "id": "read_rh",
+            "details":"Returns current value of generated %RH",
+            "command":"?RH",
+            "data_type": "float",
+            "unit": ""
+        },
+        "read_setpoints":{
+            "type": "read_multiple",
+            "name": "Setpoints",
+            "id": "read_setpoints",
+            "details":"Returns current system gsetpoint values",
+            "command":"?SP",
+            "data_type": "list",
+            "split":",",
+            "unit": ""
+        },
+        "action_generate":{
+            "type": "action",
+            "name": "Generate Mode",
+            "id":   "action_generate",
+            "details": "Changes system to generate mode",
+            "command": "GEN"
+        },
+        "action_purge":{
+            "type": "action",
+            "name": "Purge Mode",
+            "id":   "action_purge",
+            "details": "Changes system to purge mode",
+            "command": "PUR"
+        },
+        "action_stop":{
+            "type": "action",
+            "name": "Stop System",
+            "id":   "action_stop",
+            "details": "Stops the System",
+            "command": "STO"
+        },
+        "set_dew_point_setpoint":{
+            "type": "write",
+            "name": "DewPoint Setpoint",
+            "id":   "set_dew_point_setpoint",
+            "command": "DP={}"
+        },
+        "set_flow_rate_setpoint":{
+            "type": "write",
+            "name": "Flow Rate Setpoint",
+            "id":   "set_flow_rate_setpoint",
+            "command": "FL={}"
+        },
+        "set_frost_point_setpoint":{
+            "type": "write",
+            "name": "FrostPoint Setpoint",
+            "id":   "set_frost_point_setpoint",
+            "command": "FP={}"
+        },
+        "set_saturation_pressure_setpoint":{
+            "type": "write",
+            "name": "Saturation Pressure Setpoint",
+            "id":   "set_saturation_pressure_setpoint",
+            "command": "PS={}"
+        },
+        "set_rh_setpoint":{
+            "type": "write",
+            "name": "%RH Setpoint",
+            "id":   "set_rh_setpoint",
+            "command": "RH={}"
+        },
+        "set_saturation_temperature_setpoint":{
+            "type": "write",
+            "name": "Saturation Temperature Setpoint",
+            "id":   "set_saturation_temperature_setpoint",
+            "command": "TS={}"
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "instrument_id": "F250Bridge_K705Scanner",
+    "instrument_name": "Keithley 705 Scanner and F250 mk2 Bridge",
+    "driver":"F250Bridge_K705Scanner",
+    "interface": "visa",
+    "port_bridge": "GPIB0::3::INSTR",
+    "port_scanner": "GPIB0::17::INSTR",
+    "baudrate":9600,
+    "write_termination":"\r",
+    "read_termination":"\n",
+    "notes": "",
+    "operations":{
+            "read_tx_something": {
+                "type":"read",
+                "id":"read_tx_something",
+                "channel": 11,
+                "bridge_prt":"A"
+            },
+            "read_tx_something2": {
+                "type":"read",
+                "id":"read_tx_something2",
+                "channel": 12,
+                "bridge_prt":"A"
+            }
+    }
+}

@@ -1,0 +1,7 @@
+n,t,rH,Q,soak,assured
+,test_device.write_test,test_device.write_test,test_device.write_test,,
+,hg2500.read_sp_temp,hg2500.read_sp_rh,hg2500.read_sp_q,,
+1,10,20,10,20,1
+2,10,80,11,30,1
+3,20,80,12,40,1
+4,20,20,13,50,1

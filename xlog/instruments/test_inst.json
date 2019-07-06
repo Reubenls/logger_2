@@ -1,0 +1,13 @@
+{
+    "instrument_id": "test_device",
+    "instrument_name": "test_device",
+    "driver": "test_device",
+    "baud_rate":"2400",
+    "w_term": "\r",
+    "r_term": "\r\n",
+    "port": "COM5",
+    "notes": "comment",
+    "operations": {
+
+    }
+}
