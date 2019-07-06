@@ -2,4 +2,5 @@ env/
 __pycache__/
 xlog.egg-info/
 ~/
-~$xllogger.xlsm
+~$xllogger.xlsm/
+.vscode/
