@@ -12,7 +12,7 @@ async def main():
     
     server =  Ctrl_Server(ctrl_queue,'localhost',9999)
     await server.start_server()
-    wb = xw.Book(r'C:\Users\Reube\Documents\xllogger\xllogger.xlsm')
+    wb = xw.Book(r'C:\Users\j.lovellsmith\PycharmProjects\xl_log\xllogger.xlsm')
     job = Xl_Job(wb)
     job.ctrl_queue = ctrl_queue
        
@@ -31,13 +31,13 @@ def stop(ctrl_queue):
     ctrl_queue.put_nowait(('stop'))
     for tasks in asyncio.all_tasks():
         print (dir(tasks))
-    ctrl_queue.put_nowait(('stop'))
+    ctrl_queue.put_nowait(('stop',))
 
 def pause(ctrl_queue):
-    ctrl_queue.put_nowait(('pause'))
+    ctrl_queue.put_nowait(('pause',))
 
 def resume(ctrl_queue):
-    ctrl_queue.put_nowait(('resume'))
+    ctrl_queue.put_nowait(('resume',))
 
 def request(ctrl_queue,req):
     ctrl_queue.put_nowait(('request',req))
@@ -66,6 +66,7 @@ class Ctrl_Server:
             stop(self.ctrl_queue)
         elif message == 'pause':
             pause(self.ctrl_queue)
+            print("pause sent to queue")
         elif message == 'resume':
             resume(self.ctrl_queue)
         elif message.startswith('request'):

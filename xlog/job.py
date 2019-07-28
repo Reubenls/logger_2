@@ -106,6 +106,7 @@ class Job(object):
         self.auto_profile.restart()
         self.running = True
         self.paused = False
+        self.waiting = False
         await asyncio.gather(self.action_loop(),self.ctrl_loop(),self.log_loop())
         print("exit job loop")
         return True
@@ -132,6 +133,14 @@ class Job(object):
 
     def pause(self):
         self.paused = True
+
+    def wait(self):
+        self.waiting = True
+
+    def unwait(self):
+        self.waiting = False
+
+
     
     def resume(self):
         self.paused = False
@@ -139,7 +148,8 @@ class Job(object):
     async def log_loop(self):
         await asyncio.sleep(1)
         while self.running:
-            while not self.paused:        
+            print("."," ")
+            while not self.paused and not self.waiting:
                 loop = asyncio.get_running_loop()
                 latest_time = loop.time()
                 result = await self.log_ops()
@@ -163,7 +173,7 @@ class Job(object):
         requests = asyncio.gather(*req)
         await requests
         result = {}
-        print(requests)
+       # print(requests)
         for res in requests.result():
             result.update(res)
         result.update(self.timestamp())
@@ -173,14 +183,14 @@ class Job(object):
         while self.running:
             try:
                 req = await asyncio.wait_for(self.action_queue.get(), timeout=1.0)
-                self.pause()
+                self.wait()
                 inst_op, args = req
                 inst_id, op_id = inst_op.split('.')
                 res = await self.request(inst_id,op_id,args)
-                print(res)
+               # print(res)
                 self.action_queue.task_done()
                 if self.action_queue.empty():
-                    self.resume()
+                    self.unwait()
             except asyncio.TimeoutError:
                 pass
 
@@ -213,13 +223,15 @@ class Job(object):
         
     def timestamp(self):
         date_time = datetime.datetime.now()
-        runtime = time.time() - self.start_time
+        runtime = (time.time() - self.start_time)/60
+        #print("runtime (min) ",runtime)
         return {"datetime":date_time,"runtime":runtime}
 
     def to_file(self, results):
         with open(self.out_fn, "a") as output:
                 writer = csv.DictWriter(output, fieldnames=self.header, lineterminator='\n', dialect="excel")
                 writer.writerow(results)
+
 
 
 

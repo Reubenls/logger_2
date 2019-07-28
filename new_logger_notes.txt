@@ -1,0 +1,23 @@
+distinguish/define >>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+auto_profile.py
+profile.csv
+profile.json
+ap_log.csv
+
+job
+xl_job
+instrument
+instrument_local
+logger
+xllogger
+control
+command_client
+
+setup.py
+xlog.egg-info
+
+folders>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+xlog
+>drivers
+>instruments
+>xlog.egg-info

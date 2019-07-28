@@ -6,7 +6,7 @@ import sys
 
 class Auto_Profile_Manager(object):
     def __init__(self,ap_fn):
-        self.profile = self.read_csv('xlog\\'+ap_fn)
+        self.profile = self.read_csv(r'C:\Users\j.lovellsmith\PycharmProjects\xl_log\xlog\profile.csv')
         
         print(self.profile)
         self.row_num = 0

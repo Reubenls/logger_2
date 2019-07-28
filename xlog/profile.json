@@ -9,10 +9,10 @@
     "time":0,
     "instruments":{
         
-        "test_device":"C:\\Users\\Reube\\Documents\\xllogger\\xlog\\instruments\\test_inst.json"
+        "test_device":"C:\\Users\\j.lovellsmith\\PycharmProjects\\xl_log\\xlog\\instruments\\test_inst.json"
     },
     "operations":[
         
-        "test_device.read_test.4"
+        "test_device.read_test"
     ]
 }

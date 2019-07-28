@@ -3,7 +3,7 @@
     "instrument_name": "Thunder Scientific 2500 Humidity Generator",
     "driver":"generic_driver_visa_serial",
     "interface": "visa",            
-    "port": "COM26",
+    "port": "COM10",
     "baudrate":2400,
     "write_termination":"\r",
     "read_termination":"\r\n",
